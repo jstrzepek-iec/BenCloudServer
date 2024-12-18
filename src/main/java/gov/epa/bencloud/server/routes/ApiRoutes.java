@@ -74,6 +74,15 @@ public class ApiRoutes extends RoutesBase {
 		service.post(apiPrefix + "/grid-definitions", (request, response) -> {
 			return GridDefinitionApi.postGridDefinitionShapefile(request, response, getUserProfile(request, response));
 		});
+
+		/*
+		 * DELETE a single grid definition
+		 * PARAMETERS:
+		 *  :id
+		 */
+		service.delete(apiPrefix + "/grid-definitions/:id", (request, response) -> {
+			return GridDefinitionApi.deleteGridDefinition(request, response, getUserProfile(request, response));
+		});
 		
 		/*
 		 * GET array of all pollutant definitions
